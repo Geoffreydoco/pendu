@@ -1,0 +1,37 @@
+* {
+  color: white;
+  text-align: center;
+}
+body {
+  background: url(bgdices.jpg);
+  background-size: 100%;
+}
+.guessbox {
+  height: 50px;
+  width: 50px;
+  border: 1px dotted white;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
+  color: black;
+}
+.guessline {
+  font-size: 30px;
+}
+
+button {
+  color: black;
+}
+input {
+  height: 44px;
+  width: 40px;
+  background: none;
+  border: none;
+  font-size: 40px;
+  color: inherit;
+}
+span {
+    text-transform: uppercase;
+}
+
+div {display: block;}
