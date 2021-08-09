@@ -4,6 +4,7 @@ const wordtofind = wordsarray[Math.floor(Math.random() * 10)];
 console.log(wordtofind)
 const button = document.querySelector('#btn')
 const trial = document.querySelector('.trial')
+const input = document.getElementById("input")
 let nbrtrial = 8
 trial.innerHTML = "Remaining trial(s) : ".concat(nbrtrial)
 let playersletter =''
@@ -25,9 +26,8 @@ button.addEventListener('click', () => {
       wincondition = wincondition + 1
       }
     }
-    else {}
   }
-  //countdown
+  //countdown and losing condition
   nbrtrial = nbrtrial - 1
   trial.innerHTML = "Remaining trial(s) : ".concat(nbrtrial)
   if (nbrtrial == 0) {
@@ -36,10 +36,12 @@ button.addEventListener('click', () => {
   }
   //Ending setup
   if (wincondition == 5) {
-    alert("You found the answer. Congratulation !") 
+    alert("You found the Mysterious word. Congratulation !") 
     document.location.reload();   
   }
-  document.getElementById("input").value = ""  
+  // Clear value and autofocus
+  input.value = "";
+  input.focus();
 })
 
 
