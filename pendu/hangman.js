@@ -5,6 +5,8 @@ console.log(wordtofind)
 //objects declaration
 const button = document.querySelector('#btn')
 const input = document.getElementById("input")
+const alertmessage = document.querySelector(".alert")
+const closebtn = document.querySelector(".closebtn")
 let playersletter = ''
 let wincondition = 0
 //Display trials
@@ -33,13 +35,17 @@ button.addEventListener('click', () => {
     nbrtrial = nbrtrial - 1
     trial.innerHTML = "Remaining trial(s) : " + nbrtrial
     if (nbrtrial == 0 && wincondition !== 5) {
-      alert("No attempts remaining try again !")
-      document.location.reload();
+      alertmessage.classList.add("showlose")
+      alertmessage.innerHTML= ("It's a shame ! The word to find was " + wordtofind.toUpperCase() + ". <br><br>Try again ! ! <br><br><br> Click on the box to play again")      
+      alertmessage.addEventListener('click', () => {  
+      document.location.reload();})
     }
     //Ending setup
-    if (wincondition == 5) {
-      alert("You're the boss. The Mysterious word was " + wordtofind.toUpperCase() + ". Congratulation !")
-      document.location.reload();
+    if (wincondition == 5) {      
+      alertmessage.classList.add("show")      
+      alertmessage.innerHTML= ("You're the boss. The Mysterious word was " + wordtofind.toUpperCase() + ". <br>Congratulation ! <br><br><br> Click on the box to play again")      
+      alertmessage.addEventListener('click', () => {  
+      document.location.reload();})
     }
     // Clear value and autofocus
     playersletter = "";
