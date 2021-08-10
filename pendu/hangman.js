@@ -1,64 +1,65 @@
 //generating random word
 var wordsarray = ['apple', 'front', 'store', 'magic', 'paris', 'virus', 'drone', 'glove', 'where', 'salad'];
 const wordtofind = wordsarray[Math.floor(Math.random() * wordsarray.length)];
-console.log(wordtofind)
+console.log(wordtofind);
 //objects declaration
-const button = document.querySelector('#btn')
-const input = document.getElementById("input")
-const alertmessage = document.querySelector(".alert")
-const closebtn = document.querySelector(".closebtn")
-let playersletter = ''
-let wincondition = 0
+const button = document.querySelector('#btn');
+const input = document.getElementById("input");
+const alertmessage = document.querySelector(".alert");
+let playersletter = '';
+let wincondition = 0;
 //Display trials
-let nbrtrial = 8
-const trial = document.querySelector('.trial')
-trial.innerHTML = "Remaining trial(s) : " + nbrtrial
+let nbrtrial = 8;
+const trial = document.querySelector('.trial');
+trial.innerHTML = "Remaining trial(s) : " + nbrtrial;
 //getting input from player
 input.addEventListener('input', (e) => {
-  playersletter = (e.target.value).toLowerCase()
-})
+  playersletter = (e.target.value).toLowerCase();
+});
 //Trial Main function
 button.addEventListener('click', () => {
   if (playersletter) {
     for (i = 0; i < wordtofind.length; i++) {
       //comparing player input
       if (playersletter == wordtofind[i]) {
-        const letterdom = document.querySelector("#".concat('letter', i))
+        const letterdom = document.querySelector("#".concat('letter', i));
         // Dom filling good answer and wincondition stepping
         if (letterdom.innerHTML == "_") {
-          letterdom.innerHTML = playersletter
-          wincondition = wincondition + 1
+          letterdom.innerHTML = playersletter;
+          wincondition = wincondition + 1;
         }
       }
     }
     //countdown and losing condition
-    nbrtrial = nbrtrial - 1
-    trial.innerHTML = "Remaining trial(s) : " + nbrtrial
+    nbrtrial = nbrtrial - 1;
+    trial.innerHTML = "Remaining trial(s) : " + nbrtrial;
     if (nbrtrial == 0 && wincondition !== 5) {
-      alertmessage.classList.add("showlose")
-      alertmessage.innerHTML= ("It's a shame ! The word to find was " + wordtofind.toUpperCase() + ". <br><br>Try again ! ! <br><br><br> Click on the box to play again")      
-      alertmessage.addEventListener('click', () => {  
-      document.location.reload();})
+      alertmessage.classList.add("showlose");
+      alertmessage.innerHTML = ("It's a shame ! The word to find was " + wordtofind.toUpperCase() + ". <br><br>Try again ! ! <br><br><br> Click to play again");
+      alertmessage.addEventListener('click', () => {
+        document.location.reload();
+      });
     }
     //Ending setup
-    if (wincondition == 5) {      
-      alertmessage.classList.add("show")      
-      alertmessage.innerHTML= ("You're the boss. The Mysterious word was " + wordtofind.toUpperCase() + ". <br>Congratulation ! <br><br><br> Click on the box to play again")      
-      alertmessage.addEventListener('click', () => {  
-      document.location.reload();})
+    if (wincondition == 5) {
+      alertmessage.classList.add("show");
+      alertmessage.innerHTML = ("You're the boss. The Mysterious word was " + wordtofind.toUpperCase() + ". <br>Congratulation ! <br><br><br> Click to play again");
+      alertmessage.addEventListener('click', () => {
+        document.location.reload();
+      });
     }
     // Clear value and autofocus
     playersletter = "";
     input.value = "";
     input.focus();
   }
-})
+});
 //Alternate validation enter key
-input.addEventListener("keyup", function(e) {
-   if (e.code === 'Enter') {
-      e.preventDefault();
-      button.click();
-   }
+input.addEventListener("keyup", function (e) {
+  if (e.code === 'Enter') {
+    e.preventDefault();
+    button.click();
+  }
 });
 
 
