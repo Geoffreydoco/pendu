@@ -20,6 +20,17 @@ body {
 }
 button {
   color: black;
+  height: 70px;
+  width: 120px;
+  font-weight: 800;
+  font-size: 23px;
+  border-radius: 20px;
+  background: rgb(204, 214, 237);
+  background: radial-gradient(
+    circle,
+    rgba(204, 214, 237, 1) 31%,
+    rgba(33, 59, 60, 1) 93%
+  );
 }
 input {
   height: 44px;
@@ -38,36 +49,35 @@ div {
 
 /* The alert message box */
 .alert {
-  margin: 0% 30%;
   color: white;
-  margin-bottom: 15px;
   display: none;
-  height: fit-content;
-  padding: 30px;
   border-radius: 25px;
+  cursor: cell;
+  position: absolute;
+  top: 3%;
+  height: 50%;
+  left: 10%;
+  width: 80%;
+  margin: 0px 0px !important;
+  padding: 20vh 0px;
+  font-size: 200%;
+  font-weight: 900;
 }
 .show {
   display: block;
-  background-color: green;
+  background: rgb(32, 80, 190);
+  background: linear-gradient(
+    180deg,
+    rgba(32, 80, 190, 1) 25%,
+    rgba(70, 189, 51, 1) 83%
+  );
 }
 .showlose {
   display: block;
-  background-color: red !important;
-}
-
-/* The close button */
-.closebtn {
-  margin-left: 15px;
-  color: white;
-  font-weight: bold;
-  font-size: 22px;
-  line-height: 20px;
-  cursor: pointer;
-  transition: 0.3s;
-  display: none;
-}
-
-/* When moving the mouse over the close button */
-.closebtn:hover {
-  color: black;
+  background: rgb(244, 5, 5);
+  background: linear-gradient(
+    121deg,
+    rgba(244, 5, 5, 1) 32%,
+    rgba(121, 9, 49, 1) 69%
+  );
 }
